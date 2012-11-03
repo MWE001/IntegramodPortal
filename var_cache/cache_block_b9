@@ -1,0 +1,14 @@
+13977501c5e8688421304f805e8f0412s:529:"<table border="0" cellpadding="0" cellspacing="1" width="100%">
+	<tr>
+		<td align="left">
+		<span class="gensmall">
+		<marquee id="recent_topics" behavior="scroll" direction="up" height="200" scrolldelay="100" scrollamount="2" loop="true" onmouseover="this.stop()" onmouseout="this.start()">
+		&raquo; <a href="viewtopic.php?p=2#2"><strong>Welcome to phpBB 2</strong></a><br />
+		by <a href="profile.php?mode=viewprofile&amp;u=3">helter</a> on Sat Oct 20, 2012 5:36 am<br /><br />
+		</marquee>
+
+		</span>
+		</td>
+	</tr>
+</table>
+";

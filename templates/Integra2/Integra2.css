@@ -1,0 +1,283 @@
+body   {
+	background-image: url(images/background.gif); 
+}
+
+/* General font families for common tags */
+font,th,td,p  {
+	color: #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+a:link,a:active,a:visited   {
+	color: #2D60C8;
+	text-decoration: none;
+}
+a:hover		 { color: #3399FF; text-decoration: none}
+hr	 { border-style: solid; border-width: 1px 0px 0px 0px; border-color: #666666; height: 0px }
+.forumline	  { 
+-webkit-border-radius: 5px;
+-khtml-border-radius: 5px;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+border: solid 1px #BABABA;
+background: #F8F8F8 none repeat-x 0 0;
+margin-bottom: 4px;
+padding: 5px;
+clear: both;
+box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
+}
+
+.absbottom {
+	vertical-align: text-bottom;
+}
+.dom_overview_abshidden { position: absolute; visibility: hidden; width: 300px; }
+
+/* Main table cell colours and backgrounds */
+td.row1	  {
+	background-color: #FFFFFF;
+	background-image: url(images/background2.gif);
+}
+td.row2	   {
+	background-color: #FFFFFF;
+	background-image: url(images/background3.gif);
+	border: none;
+}
+td.row3	  {
+	background-color: #FFFFFF;
+	background-image: url(images/background2.gif);
+}
+
+/*
+  This is for the table cell above the Topics, Post & Last posts on the index.php page
+  By default this is the fading out gradiated silver background.
+  However, you could replace this with a bitmap specific for each forum
+*/
+td.rowpic  { background: #ffffff url(images/cellpic2.jpg) repeat-x }
+
+/* Header cells - the blue and silver gradient backgrounds */
+th	  { color: #000000; font-weight: bold; font-size: 11px; background: #FFFFFF url(images/cellpic3.gif); height: 25px }
+td.cat,td.catHead,td.catSides,td.catLeft,td.catRight,td.catBottom  { background: #d1d7dc url(images/cellpic1.gif); height: 28px }
+
+/*
+  Setting additional nice inner borders for the main table cells.
+  The names indicate which sides the border will be on.
+  Don't worry if you don't understand this, just ignore it :-)
+*/
+td.cat,td.catHead,td.catBottom {
+	height: 29px;
+	border-width: 0px 0px 0px 0px;
+}
+th.thHead,th.thSides,th.thTop,th.thLeft,th.thRight,th.thBottom,th.thCornerL,th.thCornerR  { font-weight: bold; height: 28px }
+td.row3Right,td.spaceRow   {
+	background-color: #FFFFFF;
+	background-image: url(images/background2.gif);
+}
+th.thHead,td.catHead  { font-size: 12px }
+th.thSides,td.catSides,td.spaceRow	  { }
+th.thRight,td.catRight,td.row3Right	  { }
+th.thLeft,td.catLeft	   { }
+th.thBottom,td.catBottom   { }
+th.thTop	  { }
+th.thCornerL  { }
+th.thCornerR  { }
+#navigation-box {
+	margin: 0px;
+	padding: 0px;
+	background-image: url(images/cellpic_nav.gif);
+	background-repeat: repeat-x;
+	height: 24px;
+}
+#navigation-box ul {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+	font-size: 11px;
+	height: 28px;
+}
+#navigation-box li {
+	float: left;
+	margin: 0px;
+	padding: 0px;
+}
+#navigation-box a, #navigation-box a:visited {
+	display: block;
+	height: 15px;
+	padding: 3px 7px 2px 7px;
+	text-decoration: none;
+	color: #000;
+	display: inline;
+}
+#navigation-box a:hover {
+	color: #2E3FFF;
+	background-image: url(images/cellpic1.gif);
+	height: 17px;
+}
+.linkbg {
+	background-image: url(images/cellpic3.gif);
+	background-repeat: repeat-x;
+    height: 44px;
+  }
+
+/* The largest text used in the index page title and toptic title etc. */
+.maintitle,h1,h2	 { color: #000000; font-weight: bold; font-size: 16px; font-family: Verdana, Arial, Helvetica, sans-serif; text-decoration: none }
+
+/* General text */
+.genbig {
+	font-size : 12px;
+	text-decoration: none;
+}
+.gen {
+	font-size : 11px;
+	text-decoration: none;
+}
+.genmed {
+	font-size : 11px;
+	text-decoration: none;
+}
+.gensmall {
+	font-size : 10px;
+	text-decoration: none;
+}
+.gen,.genmed,.gensmall  {
+	color: #000000;
+	text-decoration: none;
+}
+a.gen,a.genmed,a.gensmall,a.genbig   { color: #2B58B3; text-decoration: none }
+a.gen:hover,a.genmed:hover,a.gensmall:hover,a.genbig:hover	  { color: #3399FF; text-decoration: none}
+.copyright{font-size:12px}
+
+/* The register, login, search etc links at the top of the page */
+.mainmenu		  {
+	color: #000000;
+	font-size: 11px;
+}
+a.mainmenu		  {
+	color: #000000;
+	text-decoration: none;
+}
+a.mainmenu:visited  { color: #000000; text-decoration: none }
+a.mainmenu:hover  { color: #FFFFFF; text-decoration: none}
+
+/* Forum category titles */
+.cattitle		  {
+	color: #000000;
+	font-weight: bold;
+	font-size: 11px;
+}
+a.cattitle		  { color: #000000; text-decoration: none }
+a.cattitle:hover  {
+	color: #666666;
+	text-decoration: none;
+}
+
+/* Forum title: Text and link to the forums used in: index.php */
+.forumlink		  { color: #2B58B3; font-weight: bold; font-size: 12px }
+a.forumlink 	  { color: #2B58B3; text-decoration: none }
+a.forumlink:hover  { color: #3399FF; text-decoration: none}
+
+/* Used for the navigation text, (Page 1,2,3 etc) and the navigation bar when in a forum */
+.nav		  { color: #000000; font-weight: bold; font-size: 11px }
+a.nav		  { color: #000000; text-decoration: none }
+a.nav:visited { color: #000000; text-decoration: none }
+a.nav:hover	  { color: #3399FF; text-decoration: none}
+
+/* titles for the topics: could specify viewed link colour too */
+.topictitle			  { color: #000000; font-weight: bold; font-size: 11px }
+a.topictitle:link     { color: #2B58B3; text-decoration: none }
+a.topictitle:visited   { color: #666666; text-decoration: none }
+a.topictitle:hover	  { color: #3399FF; text-decoration: none}
+
+/* Name of poster in viewmsg.php and viewtopic.php and other places */
+.name			 { color: #000000; font-size: 11px }
+
+/* Location, number of posts, post date etc */
+.postdetails		 { color: #000000; font-size: 10px }
+
+/* The content of the posts (body of text) */
+.postbody { font-size : 13px;}
+a.postlink:link	  { color: 2B58B3; text-decoration: none }
+a.postlink:visited   { color: #2172C9; text-decoration: none }
+a.postlink:hover   { color: #3399FF; text-decoration: none}
+
+/* Quote blocks */
+.quotetitle,.quote {color:#475e61;font-size:11px;border: 1px solid #a4bad2;padding:2px 2px 3px 3px}
+.quotetitle {background:#e1e7ec;text-indent:2px;font-weight:bold;margin:10px 20px 0 20px}
+.quote {background:#fafafa;border-top-width:0;color:#cc6633;font-size:11px;margin:0 20px 10px 20px}
+.quote {overflow:auto;height:40px}
+.quote {color:#246EBF}
+
+/* Code blocks */
+.codetitle,.code {border:1px solid #a4bad2;padding:2px 2px 3px 3px}
+.codetitle {font-size:11px;background: #d8dfe4;text-indent:2px;font-weight:bold;margin:10px 20px 0 20px}
+.code {background:#fafafa;border-top-width:0;color:#555;
+font:13px Courier,'Courier New',sans-serif;margin:0 20px 0 20px;line-height:110%}
+.code {overflow:auto;height:40px}
+.code {color:#246EBF}
+
+/* PHP blocks */
+.phptitle,.php {border:1px solid #a4bad2;padding:2px 2px 3px 3px}
+.phptitle {font-size:11px;background: #d8dfe4;text-indent:2px;font-weight:bold;margin:10px 20px 0 20px}
+.php {background:#fafafa;border-top-width:0;color:#555;
+font:13px Courier,'Courier New',sans-serif;margin:0 20px 0 20px;line-height:110%}
+.php {overflow:auto;height:40px}
+.php {color:#246EBF}
+
+/* This is for the error messages that pop up */
+.errorline{background:#add8e6;border:1px solid #000000}
+
+/* Form elements */
+form{display:inline}
+input{font:11px Verdana,Arial,Helvetica,sans-serif}
+select{background:#ffffff;font:11px Verdana,Arial,Helvetica,sans-serif}
+input.post,textarea.post{background:#ffffff;border:1px solid #000000;
+font:11px Verdana,Arial,Helvetica,sans-serif;padding-bottom:2px;padding-left:2px}
+input.button,input.liteoption,.fakebut{border:1px solid #000000;background:#CCCCCC;font-size:11px}
+input.catbutton{border:1px solid #000000;background:#CCCCCC;font-size:10px}
+input.mainoption{border:1px solid #000000;background:#CCCCCC;font-size:11px;font-weight:bold}
+a.but,a.but:hover,a.but:visited{color:#000000;text-decoration:none}
+
+/* This is the line in the posting page which shows the rollover
+help line. Color value in row2 */
+.helpline  {background-color: #99CCFF; border:0 solid;font-size:10px}
+
+/* This is the gradient background at the top of the page */
+.title	{
+    background-color: #FFFFFF;
+	background-image: url(images/cellpic3.gif);
+}
+.topbkg	{
+    background-color: #FFFFFF;
+	background-image: url(images/background2.gif);
+}
+.navbar{
+	font-size:10px;
+	background: #81BBFB url(images/cellpic_nav.gif) repeat-x; 
+	height:24px; 
+	width:100%;
+}
+
+td .navbar { color: #000; text-decoration: none}
+td .navbar a:link	 { color: #000; text-decoration: none}
+td .navbar a:visited { color: #000; text-decoration: none}
+td .navbar a:hover   { color: #666666; text-decoration: none}
+
+/* Specify the space around images */
+.imgtopic,.imgicon{margin-left:3px}
+.imgspace{margin-left:1px;margin-right:2px}
+.imgfolder{margin:1px 4px 1px 4px}
+
+/* Gets rid of the need for border="0" on hyperlinked images */
+img{border:0 solid}
+abbr, acronym {
+	font-weight: bold;
+	text-decoration: overline;
+	cursor: help;
+}
+.acronym{background:#FFFFCC}
+.alert{color:#FF3300}
+
+/* Background images for tables */
+.tbl{border-collapse:collapse;height:4px;width:100%}
+.tbll{background: url(images/tb4_l.gif) no-repeat;width:8px}
+.tblbot{background: url(images/tb4_m.gif) repeat-x;width:100%}
+.tblr{background: url(images/tb4_r.gif) no-repeat;width:8px}

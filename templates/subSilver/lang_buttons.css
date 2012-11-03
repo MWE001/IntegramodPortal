@@ -1,0 +1,585 @@
+/*  subsilver2 Language Buttons
+    --------------------------------------------------------------
+	Style name:			subSilver2
+	Based on style:		subSilver 		( the default phpBB 2 style )
+	Original author:	subBlue 		( http://www.subBlue.com/ )
+	Modified by:		HelterSkelter 	( http://www.forumimages.us/ )
+	
+	This is an alternative button style for subsilver2 eliminating the need for different button images for every installed language
+	
+	Copyright 2010 fiteam ( http://www.forumimages.us/ )
+    --------------------------------------------------------------
+*/
+a.button_new {
+    background: transparent url(images/button_right.gif) no-repeat scroll top right;
+    display: block;
+    float: left;
+    height: 25px;  /* this is 1/2 of the full button image height */
+    margin: 0px;
+    margin-right: 8px;
+    padding-right: 11px;
+	letter-spacing:.25px;
+	text-decoration: none;
+	text-transform:lowercase !important;
+
+}
+
+a.button_new:hover {
+    background-position: bottom right;
+    outline: none; /* hide dotted outline in Firefox */
+    text-decoration: none;
+}
+
+a.button_new div {
+    background: transparent url(images/button_post.gif) no-repeat;
+    display: block;
+    line-height: 19px;  /* line height + top padding + bottom padding should equal 1/2 of the full button image height */
+    padding: 3px 0px 3px 22px;
+    color: #005D8C;
+	margin:0px;
+}
+
+a.button_new:hover div {
+    background-position: bottom left;
+    padding: 3px 0px 3px 22px;
+    color: #005D8C;
+}
+
+a.button_reply {
+    background: transparent url(images/button_right.gif) no-repeat scroll top right;
+    display: block;
+    float: left;
+    height: 25px;  /* this is 1/2 of the full button image height */
+    margin: 0px;
+    margin-right: 8px;
+    padding-right: 11px;
+	letter-spacing:.25px;
+	text-decoration: none;
+	text-transform:lowercase !important;
+
+}
+
+a.button_reply:hover {
+    background-position: bottom right;
+    outline: none; /* hide dotted outline in Firefox */
+    text-decoration: none;
+}
+
+a.button_reply div {
+    background: transparent url(images/button_reply.gif) no-repeat;
+    display: block;
+    line-height: 19px;  /* line height + top padding + bottom padding should equal 1/2 of the full button image height */
+    padding: 3px 0px 3px 22px;
+    color: #005D8C;
+	margin:0px;
+}
+
+a.button_reply:hover div {
+    background-position: bottom left;
+    padding: 3px 0px 3px 22px;
+    color: #005D8C;
+}
+
+a.pm div {
+    padding: 2px 0px 4px 22px;
+}
+
+a.pm:hover div {
+    padding: 2px 0px 4px 22px;
+}
+
+a.icon_nav {
+    background: transparent url(images/icon_right_nav.gif) no-repeat scroll top right;
+    display: block;
+    float: left;
+	letter-spacing:.25px;
+    height: 18px;
+	margin:0x 0 0px 6px;
+    padding-right: 6px;
+	text-decoration: none;
+	text-transform:lowercase !important;
+}
+
+a.icon_nav:hover {
+    background-position: bottom right;
+    outline: none; /* hide dotted outline in Firefox */
+    text-decoration: none;
+}
+
+a.icon_nav span {
+    background: transparent url(images/icon_nav.gif) no-repeat;
+    display: block;
+    line-height: 10px;
+    padding: 5px 0px 3px 20px;
+    color: #005D8C;
+}
+
+a.icon_nav:hover span {
+    background-position: bottom left;
+    padding: 5px 0px 3px 20px;
+    color: #005D8C;
+}
+
+a.icon_user_profile {
+    background: transparent url(images/icon_right.gif) no-repeat scroll top right;
+    display: block;
+    float: left;
+	letter-spacing:.25px;
+    height: 18px;
+	margin:-2px 0 0 6px;
+    padding-right: 6px;
+	text-decoration: none;
+	text-transform:lowercase !important;
+}
+
+a.icon_user_profile:hover {
+    background-position: bottom right;
+    outline: none; /* hide dotted outline in Firefox */
+    text-decoration: none;
+}
+
+a.icon_user_profile span {
+    background: transparent url(images/icon_profile.gif) no-repeat;
+    display: block;
+    line-height: 10px;
+    padding: 5px 0px 3px 20px;
+    color: #005D8C;
+}
+
+a.icon_user_profile:hover span {
+    background-position: bottom left;
+    padding: 5px 0px 3px 20px;
+    color: #005D8C;
+}
+
+a.icon_user_pm {
+    background: transparent url(images/icon_right.gif) no-repeat scroll top right;
+    display: block;
+    float: left;
+	letter-spacing:.25px;
+    height: 18px;
+	margin:-2px 0 0 6px;
+    padding-right: 6px;
+	text-decoration: none;
+	text-transform:lowercase !important;
+}
+
+a.icon_user_pm:hover {
+    background-position: bottom right;
+    outline: none; /* hide dotted outline in Firefox */
+    text-decoration: none;
+}
+
+a.icon_user_pm span {
+    background: transparent url(images/icon_pm.gif) no-repeat;
+    display: block;
+    line-height: 10px;
+    padding: 5px 0px 3px 30px;
+    color: #005D8C;
+}
+
+a.icon_user_pm:hover span {
+    background-position: bottom left;
+    padding: 5px 0px 3px 30px;
+    color: #005D8C;
+}
+
+a.icon_user_email {
+    background: transparent url(images/icon_right.gif) no-repeat scroll top right;
+    display: block;
+    float: left;
+	letter-spacing:.25px;
+    height: 18px;
+	margin:-2px 0 0 6px;
+    padding-right: 6px;
+	text-decoration: none;
+	text-transform:lowercase !important;
+}
+
+a.icon_user_email:hover {
+    background-position: bottom right;
+    outline: none; /* hide dotted outline in Firefox */
+    text-decoration: none;
+}
+
+a.icon_user_email span {
+    background: transparent url(images/icon_email.gif) no-repeat;
+    display: block;
+    line-height: 10px;
+    padding: 5px 0px 3px 24px;
+    color: #005D8C;
+}
+
+a.icon_user_email:hover span {
+    background-position: bottom left;
+    padding: 5px 0px 3px 24px;
+    color: #005D8C;
+}
+
+a.icon_user_website {
+    background: transparent url(images/icon_right.gif) no-repeat scroll top right;
+    display: block;
+    float: left;
+	letter-spacing:.25px;
+    height: 18px;
+	margin:-2px 0 0 6px;
+    padding-right: 6px;
+	text-decoration: none;
+}
+
+a.icon_user_website:hover {
+    background-position: bottom right;
+    outline: none; /* hide dotted outline in Firefox */
+    text-decoration: none;
+}
+
+a.icon_user_website span {
+    background: transparent url(images/icon_www.gif) no-repeat;
+    display: block;
+    line-height: 10px;
+    padding: 5px 0px 3px 22px;
+    color: #005D8C;
+}
+
+a.icon_user_website:hover span {
+    background-position: bottom left;
+    padding: 5px 0px 3px 22px;
+    color: #005D8C;
+}
+
+a.icon_user_aim {
+    background: transparent url(images/icon_right.gif) no-repeat scroll top right;
+    display: block;
+    float: left;
+	letter-spacing:.25px;
+    height: 18px;
+	margin:-2px 0 0 6px;
+    padding-right: 6px;
+	text-decoration: none;
+}
+
+a.icon_user_aim:hover {
+    background-position: bottom right;
+    outline: none; /* hide dotted outline in Firefox */
+    text-decoration: none;
+}
+
+a.icon_user_aim span {
+    background: transparent url(images/icon_aim.gif) no-repeat;
+    display: block;
+    line-height: 10px;
+    padding: 5px 0px 3px 20px;
+    color: #005D8C;
+}
+
+a.icon_user_aim:hover span {
+    background-position: bottom left;
+    padding: 5px 0px 3px 20px;
+    color: #005D8C;
+}
+
+a.icon_user_icq {
+    background: transparent url(images/icon_right.gif) no-repeat scroll top right;
+    display: block;
+    float: left;
+	letter-spacing:.25px;
+    height: 18px;
+    margin-right: 6px;
+    margin-left: 6px;
+    padding-right: 6px;
+	text-decoration: none;
+}
+
+a.icon_user_icq:hover {
+    background-position: bottom right;
+    outline: none; /* hide dotted outline in Firefox */
+    text-decoration: none;
+}
+
+a.icon_user_icq span {
+    background: transparent url(images/icon_icq_add.gif) no-repeat;
+    display: block;
+    line-height: 10px;
+    padding: 5px 0px 3px 22px;
+    color: #005D8C;
+}
+
+a.icon_user_icq:hover span {
+    background-position: bottom left;
+    padding: 5px 0px 3px 22px;
+    color: #005D8C;
+}
+
+a.icon_user_msnm {
+    background: transparent url(images/icon_right.gif) no-repeat scroll top right;
+    display: block;
+    float: left;
+	letter-spacing:.25px;
+    height: 18px;
+	margin:-2px 0 0 6px;
+    padding-right: 6px;
+	text-decoration: none;
+}
+
+a.icon_user_msnm:hover {
+    background-position: bottom right;
+    outline: none; /* hide dotted outline in Firefox */
+    text-decoration: none;
+}
+
+a.icon_user_msnm span {
+    background: transparent url(images/icon_msnm.gif) no-repeat;
+    display: block;
+    line-height: 10px;
+    padding: 5px 0px 3px 20px;
+    color: #005D8C;
+}
+
+a.icon_user_msnm:hover span {
+    background-position: bottom left;
+    padding: 5px 0px 3px 20px;
+    color: #005D8C;
+}
+
+a.icon_user_yim {
+    background: transparent url(images/icon_right.gif) no-repeat scroll top right;
+    display: block;
+    float: left;
+	letter-spacing:.25px;
+    height: 18px;
+	margin:-2px 0 0 6px;
+    padding-right: 6px;
+	text-decoration: none;
+}
+
+a.icon_user_yim:hover {
+    background-position: bottom right;
+    outline: none; /* hide dotted outline in Firefox */
+    text-decoration: none;
+}
+
+a.icon_user_yim span {
+    background: transparent url(images/icon_yim.gif) no-repeat;
+    display: block;
+    line-height: 10px;
+    padding: 5px 0px 3px 26px;
+    color: #005D8C;
+}
+
+a.icon_user_yim:hover span {
+    background-position: bottom left;
+    padding: 5px 0px 3px 26px;
+    color: #005D8C;
+}
+
+a.icon_post_quote {
+    background: transparent url(images/icon_right.gif) no-repeat scroll top right;
+    display: block;
+    float: left;
+	letter-spacing:.25px;
+    height: 18px;
+	margin:0px 0 0 6px;
+    padding-right: 6px;
+	text-decoration: none;
+	text-transform:lowercase !important;
+}
+
+a.icon_post_quote:hover {
+    background-position: bottom right;
+    outline: none; /* hide dotted outline in Firefox */
+    text-decoration: none;
+}
+
+a.icon_post_quote span {
+    background: transparent url(images/icon_quote.gif) no-repeat;
+    display: block;
+    line-height: 10px;
+    padding: 5px 0px 3px 22px;
+    color: #005D8C;
+}
+
+a.icon_post_quote:hover span {
+    background-position: bottom left;
+    padding: 5px 0px 3px 22px;
+    color: #005D8C;
+}
+
+a.icon_post_edit {
+    background: transparent url(images/icon_right.gif) no-repeat scroll top right;
+    display: block;
+    float: left;
+	letter-spacing:.25px;
+    height: 18px;
+	margin:0px 0 0 6px;
+    padding-right: 6px;
+	text-decoration: none;
+	text-transform:lowercase !important;
+}
+
+a.icon_post_edit:hover {
+    background-position: bottom right;
+    outline: none; /* hide dotted outline in Firefox */
+    text-decoration: none;
+}
+
+a.icon_post_edit span {
+    background: transparent url(images/icon_edit.gif) no-repeat;
+    display: block;
+    line-height: 10px;
+    padding: 5px 0px 3px 25px;
+    color: #005D8C;
+}
+
+a.icon_post_edit:hover span {
+    background-position: bottom left;
+    padding: 5px 0px 3px 25px;
+    color: #005D8C;
+}
+
+a.icon_post_search {
+    background: transparent url(images/icon_right.gif) no-repeat scroll top right;
+    display: block;
+    float: left;
+	letter-spacing:.25px;
+    height: 18px;
+	margin:0px 0 0 6px;
+    padding-right: 6px;
+	text-decoration: none;
+	text-transform:lowercase !important;
+}
+
+a.icon_post_search:hover {
+    background-position: bottom right;
+    outline: none; /* hide dotted outline in Firefox */
+    text-decoration: none;
+}
+
+a.icon_post_search span {
+    background: transparent url(images/icon_search.gif) no-repeat;
+    display: block;
+    line-height: 10px;
+    padding: 5px 0px 3px 25px;
+    color: #005D8C;
+}
+
+a.icon_post_search:hover span {
+    background-position: bottom left;
+    padding: 5px 0px 3px 25px;
+    color: #005D8C;
+}
+
+a.icon_post_delete {
+    background: transparent url(images/icon_right.gif) no-repeat scroll top right;
+    display: block;
+    float: left;
+	letter-spacing:.25px;
+    height: 18px;
+	margin:0px 0 0 6px;
+    padding-right: 6px;
+	text-decoration: none;
+	text-transform:uppercase !important;
+}
+
+a.icon_post_delete:hover {
+    background-position: bottom right;
+    outline: none; /* hide dotted outline in Firefox */
+    text-decoration: none;
+}
+
+a.icon_post_delete span {
+    background: transparent url(images/icon_blank.gif) no-repeat;
+    display: block;
+    line-height: 10px;
+    padding: 5px 0px 3px 5px;
+    color: #005D8C;
+}
+
+a.icon_post_delete:hover span {
+    background-position: bottom left;
+    padding: 5px 0px 3px 5px;
+    color: #005D8C;
+}
+
+a.icon_user_ip {
+    background: transparent url(images/icon_right.gif) no-repeat scroll top right;
+    display: block;
+    float: left;
+	letter-spacing:.25px;
+    height: 18px;
+	margin:0px 0 0 6px;
+    padding-right: 6px;
+	text-decoration: none;
+	text-transform:lowercase !important;
+}
+
+a.icon_user_ip:hover {
+    background-position: bottom right;
+    outline: none; /* hide dotted outline in Firefox */
+    text-decoration: none;
+}
+
+a.icon_user_ip span {
+    background: transparent url(images/icon_blank.gif) no-repeat;
+    display: block;
+    line-height: 10px;
+    padding: 5px 0px 3px 6px;
+    color: #005D8C;
+}
+
+a.icon_user_ip:hover span {
+    background-position: bottom left;
+    padding: 5px 0px 3px 6px;
+    color: #005D8C;
+}
+
+
+.golden {
+    font: 15px Triplex-Bold, serif;
+	color: #FF8815;
+	font-weight:500;
+}
+
+.reg {
+    font: 15px Triplex-Bold, serif;
+	color: #005D8C;
+	font-weight:300;
+}
+
+.igolden {
+    font: 14px Triplex-Bold, serif;
+	color: #FF8815;
+	font-weight:500;
+}
+
+.ireg {
+    font: 13px Triplex-Bold, serif;
+	color: #005D8C;
+	font-weight:200;
+}
+
+#tp  {
+	margin-bottom: 4px;
+}
+
+
+
+.postrow {display: block;}
+
+.prb {margin:-2px 0 0px 0;}
+
+.clear-fix {
+    display: block;
+    clear: both;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    }
+
+.clearfix {display: inline-block;}  /* for IE/Mac */
+
+.golden {color: #FF8815;}

@@ -1,0 +1,22 @@
+/*
+  The original subSilver Theme for phpBB version 2+
+  Created by subBlue design
+  http://www.subBlue.com
+*/
+
+@import url("subSilver.css");
+@import url("lang_buttons.css");
+@font-face
+{
+font-family: Triplex-Bold;
+src: url(Triplex-Bold.ttf)
+    ,url(Triplex-Bold.eot); /* IE9 */
+}
+
+span.golden
+{
+font-family:Triplex-Bold;
+}
+
+/* Import the fancy styles for IE only (NS4.x doesn't use the @import function) */
+@import url("formIE.css");
