@@ -44,8 +44,8 @@ function page_header($text, $form_action = false)
 			<tr>
 				<td><table width="100%" border="0" cellspacing="0" cellpadding="0">
 					<tr>
-						<td><img src="../templates/subSilver/images/logo_phpBB.gif" border="0" alt="Forum Home" vspace="1" /></td>
-						<td align="center" width="100%" valign="middle"><span class="maintitle"><?php echo $lang['Welcome_install'];?></span></td>
+						<td><img src="../templates/Integra2/images/logo_phpBB.gif" border="0" alt="Forum Home" vspace="1" /></td>
+						<td align="center" width="100%" valign="middle"><span class="maintitle"><?php echo $lang['Welcome_install'];?></span><br /><?php echo $lang['Welcome_mods'];?></td>
 					</tr>
 				</table></td>
 			</tr>

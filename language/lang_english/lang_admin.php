@@ -682,6 +682,7 @@ $lang['img_pm_size'] = 'Private Message Status size [px]';
 // Install Process
 //
 $lang['Welcome_install'] = 'Welcome to your phpBB 2 / IntegraMOD Portal Installation';
+$lang['Welcome_mods'] = '<div class="left">This version has been modified to include: <br />&bull;<a href="http://www.integramod.com/" target="_blank">IntegraMOD Portal 1.3.0</a><br />&bull;phpBB 2.0.24<br />&bull;<a href="http://www.lithiumstudios.org/" target="_blank">Anti-Spam ACP</a><br />&bull;<a href="http://www.forumimages.us/" target="_blank">Language Buttons</a></div>';
 $lang['Initial_config'] = 'Basic Configuration';
 $lang['DB_config'] = 'Database Configuration';
 $lang['Admin_config'] = 'Admin Configuration';
@@ -694,7 +695,7 @@ $lang['Install_db_error'] = 'An error occurred trying to update the database';
 
 $lang['Re_install'] = 'Your previous installation is still active.<br /><br />If you would like to re-install phpBB 2 you should click the Yes button below. Please be aware that doing so will destroy all existing data and no backups will be made! The administrator username and password you have used to login in to the board will be re-created after the re-installation and no other settings will be retained.<br /><br />Think carefully before pressing Yes!';
 
-$lang['Inst_Step_0'] = '<h3>This version has been modified to include IntegraMOD Portal 1.3.0 and phpBB 2.0.24</h3> In order to complete this installation please fill out the details requested below.<br /> Please note that the database you install into should already exist.<br /> If you are installing to a database that uses ODBC, e.g. MS Access you should first create a DSN for it before proceeding.<br /><br /><h3>Please remember to <abbr title="set file read/write permissions">chmod</abbr> the root/<font color="red">var_cache</font> folder to "777"</h3>';
+$lang['Inst_Step_0'] = 'In order to complete this installation please fill out the details requested below.<br /> Please note that the database you install into should already exist.<br /> If you are installing to a database that uses ODBC, e.g. MS Access you should first create a DSN for it before proceeding.<br /><br /><h3>Please remember to <abbr title="set file read/write permissions">chmod</abbr> the root/<font color="red">var_cache</font> folder to "777"</h3>';
 
 $lang['Start_Install'] = 'Start Install';
 $lang['Finish_Install'] = 'Finish Installation';
