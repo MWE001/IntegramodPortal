@@ -23,6 +23,12 @@
 
 function get_db_stat($mode)
 {
+
+// Start Anti-Spam ACP MOD
+	global $board_config;
+	$as_sql = ($board_config['as_acp_hide_inactive']) ? ' AND user_active = 1' : '';
+// End Anti-Spam ACP MOD
+
 	global $db;
 
 	switch( $mode )
@@ -30,13 +36,13 @@ function get_db_stat($mode)
 		case 'usercount':
 			$sql = "SELECT COUNT(user_id) AS total
 				FROM " . USERS_TABLE . "
-				WHERE user_id <> " . ANONYMOUS;
+				WHERE user_id <> " . ANONYMOUS . $as_sql;
 			break;
 
 		case 'newestuser':
 			$sql = "SELECT user_id, username
 				FROM " . USERS_TABLE . "
-				WHERE user_id <> " . ANONYMOUS . "
+				WHERE user_id <> " . ANONYMOUS . " $as_sql
 				ORDER BY user_id DESC
 				LIMIT 1";
 			break;

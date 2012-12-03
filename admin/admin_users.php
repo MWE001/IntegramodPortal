@@ -38,6 +38,11 @@ require($phpbb_root_path . 'includes/functions_post.'.$phpEx);
 require($phpbb_root_path . 'includes/functions_selects.'.$phpEx);
 require($phpbb_root_path . 'includes/functions_validate.'.$phpEx);
 
+// Start Anti-Spam ACP MOD
+include_once($phpbb_root_path . 'language/lang_' . $board_config['default_lang'] . '/lang_anti_spam_acp.' . $phpEx);
+require($phpbb_root_path . 'includes/functions_anti_spam_acp.' . $phpEx);
+// End Anti-Spam ACP MOD
+
 $html_entities_match = array('#<#', '#>#');
 $html_entities_replace = array('&lt;', '&gt;');
 
@@ -65,6 +70,10 @@ if ( $mode == 'edit' || $mode == 'save' && ( isset($HTTP_POST_VARS['username']) 
 	if ( ( $mode == 'save' && isset( $HTTP_POST_VARS['submit'] ) ) || isset( $HTTP_POST_VARS['avatargallery'] ) || isset( $HTTP_POST_VARS['submitavatar'] ) || isset( $HTTP_POST_VARS['cancelavatar'] ) )
 	{
 		$user_id = intval($HTTP_POST_VARS['id']);
+
+// Start Anti-Spam ACP MOD
+		$message = '';
+// End Anti-Spam ACP MOD
 
 		if (!($this_userdata = get_userdata($user_id)))
 		{
@@ -208,10 +217,34 @@ if ( $mode == 'edit' || $mode == 'save' && ( isset($HTTP_POST_VARS['username']) 
 				}
 			}
 
-			$message = $lang['User_deleted'] . '<br /><br />' . sprintf($lang['Click_return_useradmin'], '<a href="' . append_sid("admin_users.$phpEx") . '">', '</a>') . '<br /><br />' . sprintf($lang['Click_return_admin_index'], '<a href="' . append_sid("index.$phpEx?pane=right") . '">', '</a>');
+// Start Anti-Spam ACP MOD
+//			$message = $lang['User_deleted'] . '<br /><br />' . sprintf($lang['Click_return_useradmin'], '<a href="' . append_sid("admin_users.$phpEx") . '">', '</a>') . '<br /><br />' . sprintf($lang['Click_return_admin_index'], '<a href="' . append_sid("index.$phpEx?pane=right") . '">', '</a>');
+//
+//			message_die(GENERAL_MESSAGE, $message);
+			$message .= $lang['User_deleted'] . '<br />';
+// End Anti-Spam ACP MOD
 
+		}
+
+// Start Anti-Spam ACP MOD
+		if( $HTTP_POST_VARS['deletetopics'] )
+		{
+			delete_topics($user_id);
+			$message .= $lang['User_Topics_Deleted'] . '<br/>';
+		}
+
+		if( $HTTP_POST_VARS['deleteposts'] )
+		{
+			delete_posts($user_id);
+			$message .= $lang['User_Posts_Deleted'] . '<br/>';
+		}
+
+		if ( ($HTTP_POST_VARS['deleteuser']) || ($HTTP_POST_VARS['deletetopics']) || ($HTTP_POST_VARS['deleteposts']) )
+		{
+			$message .= '<br />' . sprintf($lang['Click_return_useradmin'], '<a href="' . append_sid("admin_users.$phpEx") . '">', '</a>') . '<br /><br />' . sprintf($lang['Click_return_admin_index'], '<a href="' . append_sid("index.$phpEx?pane=right") . '">', '</a>');
 			message_die(GENERAL_MESSAGE, $message);
 		}
+// End Anti-Spam ACP MOD
 
 		$username = ( !empty($HTTP_POST_VARS['username']) ) ? phpbb_clean_username($HTTP_POST_VARS['username']) : '';
 		$email = ( !empty($HTTP_POST_VARS['email']) ) ? trim(strip_tags(htmlspecialchars( $HTTP_POST_VARS['email'] ) )) : '';
@@ -1097,6 +1130,13 @@ if ( $mode == 'edit' || $mode == 'save' && ( isset($HTTP_POST_VARS['username']) 
 
 			'L_DELETE_USER' => $lang['User_delete'],
 			'L_DELETE_USER_EXPLAIN' => $lang['User_delete_explain'],
+// Start Anti-Spam ACP MOD
+			'L_DELETE_USER_TOPICS' => $lang['User_delete_topics'],
+			'L_DELETE_USER_TOPICS_EXPLAIN' => $lang['User_delete_topics_explain'],
+			'L_DELETE_USER_POSTS' => $lang['User_delete_posts'],
+			'L_DELETE_USER_POSTS_EXPLAIN' => $lang['User_delete_posts_explain'],
+// End Anti-Spam ACP MOD
+
 			'L_SELECT_RANK' => $lang['Rank_title'],
 
 			'S_HIDDEN_FIELDS' => $s_hidden_fields,

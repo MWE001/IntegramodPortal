@@ -62,9 +62,10 @@
 	</tr>
 	<tr> 
 	  <td class="row1"><span class="gen">{L_CONFIRM_CODE}: * </span><br /><span class="gensmall">{L_CONFIRM_CODE_EXPLAIN}</span></td>
-	  <td class="row2"><input type="text" class="post" style="width: 200px" name="confirm_code" size="6" maxlength="6" value="" /></td>
+	  <td class="row2"><input type="text" class="post" style="width: 200px" name="confirm_code" size="8" maxlength="8" value="" /></td>
 	</tr>
 	<!-- END switch_confirm -->
+	<!-- BEGIN switch_edit_all -->
 	<tr> 
 	  <td class="catSides" colspan="2" height="28">&nbsp;</td>
 	</tr>
@@ -74,60 +75,79 @@
 	<tr> 
 	  <td class="row2" colspan="2"><span class="gensmall">{L_PROFILE_INFO_NOTICE}</span></td>
 	</tr>
+	<!-- END switch_edit_all -->
+	<!-- BEGIN switch_edit_icq -->
 	<tr> 
-	  <td class="row1"><span class="gen">{L_ICQ_NUMBER}:</span></td>
+	  <td class="row1"><span class="gen">{L_ICQ_NUMBER}:{ICQ_REQUIRED}</span></td>
 	  <td class="row2"> 
 		<input type="text" name="icq" class="post" style="width: 100px"  size="10" maxlength="15" value="{ICQ}" />
 	  </td>
 	</tr>
+	<!-- END switch_edit_icq -->
+	<!-- BEGIN switch_edit_aim -->
 	<tr> 
-	  <td class="row1"><span class="gen">{L_AIM}:</span></td>
+	  <td class="row1"><span class="gen">{L_AIM}:{AIM_REQUIRED}</span></td>
 	  <td class="row2"> 
 		<input type="text" class="post" style="width: 150px"  name="aim" size="20" maxlength="255" value="{AIM}" />
 	  </td>
 	</tr>
+	<!-- END switch_edit_aim -->
+	<!-- BEGIN switch_edit_msn -->
 	<tr> 
-	  <td class="row1"><span class="gen">{L_MESSENGER}:</span></td>
+	  <td class="row1"><span class="gen">{L_MESSENGER}:{MSN_REQUIRED}</span></td>
 	  <td class="row2"> 
 		<input type="text" class="post" style="width: 150px"  name="msn" size="20" maxlength="255" value="{MSN}" />
 	  </td>
 	</tr>
+	<!-- END switch_edit_msn -->
+	<!-- BEGIN switch_edit_yim -->
 	<tr> 
-	  <td class="row1"><span class="gen">{L_YAHOO}:</span></td>
+	  <td class="row1"><span class="gen">{L_YAHOO}:{YIM_REQUIRED}</span></td>
 	  <td class="row2"> 
 		<input type="text" class="post" style="width: 150px"  name="yim" size="20" maxlength="255" value="{YIM}" />
 	  </td>
 	</tr>
+	<!-- END switch_edit_yim -->
+	<!-- BEGIN switch_edit_web -->
 	<tr> 
-	  <td class="row1"><span class="gen">{L_WEBSITE}:</span></td>
+	  <td class="row1"><span class="gen">{L_WEBSITE}:{WEB_REQUIRED}</span></td>
 	  <td class="row2"> 
 		<input type="text" class="post" style="width: 200px"  name="website" size="25" maxlength="255" value="{WEBSITE}" />
 	  </td>
 	</tr>
+	<!-- END switch_edit_web -->
+	<!-- BEGIN switch_edit_loc -->
 	<tr> 
-	  <td class="row1"><span class="gen">{L_LOCATION}:</span></td>
+	  <td class="row1"><span class="gen">{L_LOCATION}:{LOC_REQUIRED}</span></td>
 	  <td class="row2"> 
 		<input type="text" class="post" style="width: 200px"  name="location" size="25" maxlength="100" value="{LOCATION}" />
 	  </td>
 	</tr>
+	<!-- END switch_edit_loc -->
+	<!-- BEGIN switch_edit_occ -->
 	<tr> 
-	  <td class="row1"><span class="gen">{L_OCCUPATION}:</span></td>
+	  <td class="row1"><span class="gen">{L_OCCUPATION}:{OCC_REQUIRED}</span></td>
 	  <td class="row2"> 
 		<input type="text" class="post" style="width: 200px"  name="occupation" size="25" maxlength="100" value="{OCCUPATION}" />
 	  </td>
 	</tr>
+	<!-- END switch_edit_occ -->
+	<!-- BEGIN switch_edit_int -->
 	<tr> 
-	  <td class="row1"><span class="gen">{L_INTERESTS}:</span></td>
+	  <td class="row1"><span class="gen">{L_INTERESTS}:{INT_REQUIRED}</span></td>
 	  <td class="row2"> 
 		<input type="text" class="post" style="width: 200px"  name="interests" size="35" maxlength="150" value="{INTERESTS}" />
 	  </td>
 	</tr>
+	<!-- END switch_edit_int -->
+	<!-- BEGIN switch_edit_sig -->
 	<tr> 
-	  <td class="row1"><span class="gen">{L_SIGNATURE}:</span><br /><span class="gensmall">{L_SIGNATURE_EXPLAIN}<br /><br />{HTML_STATUS}<br />{BBCODE_STATUS}<br />{SMILIES_STATUS}</span></td>
+	  <td class="row1"><span class="gen">{L_SIGNATURE}:{SIG_REQUIRED}</span><br /><span class="gensmall">{L_SIGNATURE_EXPLAIN}<br /><br />{HTML_STATUS}<br />{BBCODE_STATUS}<br />{SMILIES_STATUS}</span></td>
 	  <td class="row2"> 
 		<textarea name="signature" style="width: 300px" rows="6" cols="30" class="post">{SIGNATURE}</textarea>
 	  </td>
 	</tr>
+	<!-- END switch_edit_sig -->
 	<tr> 
 	  <td class="catSides" colspan="2" height="28">&nbsp;</td>
 	</tr>

@@ -169,6 +169,9 @@ define('SEARCH_MATCH_TABLE', $table_prefix.'search_wordmatch');
 define('SESSIONS_TABLE', $table_prefix.'sessions');
 define('SESSIONS_KEYS_TABLE', $table_prefix.'sessions_keys');
 define('SMILIES_TABLE', $table_prefix.'smilies');
+// Start Anti-Spam ACP MOD
+define('SPAM_LOG_TABLE', $table_prefix . 'spam_log');
+// End Anti-Spam ACP MOD
 define('THEMES_TABLE', $table_prefix.'themes');
 define('THEMES_NAME_TABLE', $table_prefix.'themes_name');
 define('TOPICS_TABLE', $table_prefix.'topics');

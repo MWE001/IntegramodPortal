@@ -301,6 +301,18 @@
 		{L_DELETE_USER_EXPLAIN}</td>
 	</tr>
 	<tr> 
+	  <td class="row1"><span class="gen">{L_DELETE_USER_TOPICS}</span></td>
+	  <td class="row2"> 
+		<input type="checkbox" name="deletetopics">
+		{L_DELETE_USER_TOPICS_EXPLAIN}</td>
+	</tr>
+	<tr> 
+	  <td class="row1"><span class="gen">{L_DELETE_USER_POSTS}</span></td>
+	  <td class="row2"> 
+		<input type="checkbox" name="deleteposts">
+		{L_DELETE_USER_POSTS_EXPLAIN}</td>
+	</tr>
+	<tr> 
 	  <td class="catBottom" colspan="2" align="center">{S_HIDDEN_FIELDS} 
 		<input type="submit" name="submit" value="{L_SUBMIT}" class="mainoption" />
 		&nbsp;&nbsp; 

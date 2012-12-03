@@ -1029,8 +1029,10 @@ $lang['Session_invalid'] = 'Invalid Session. Please resubmit the form.';
 //
 $lang['Admin_panel2'] = 'Admin';
 $lang['Admin_bull'] = '&nbsp;&#8226;&nbsp;&nbsp;';
-$lang['Home'] = 'Home';
 $lang['Forums'] = 'Forums';
+$lang['Faq'] = 'FAQ';
+$lang['Home'] = 'Home';
+$lang['Portal'] = 'Portal';
 
 $lang['Edit'] = 'edit';
 $lang['Delete_s'] = 'X';
@@ -1046,6 +1048,9 @@ $lang['ICQ_S'] = 'ICQ';
 $lang['AIM_S'] = 'AIM';
 $lang['MSNM_S'] = 'MSNM';
 $lang['YIM_S'] = 'YIM';
+
+
+
 //
 // That's all, Folks!
 // -------------------------------------------------

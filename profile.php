@@ -98,8 +98,10 @@ if ( isset($HTTP_GET_VARS['mode']) || isset($HTTP_POST_VARS['mode']) )
 		{
 			exit;
 		}
-
-		include($phpbb_root_path . 'includes/usercp_confirm.'.$phpEx);
+// Start Anti-Spam ACP MOD
+//		include($phpbb_root_path . 'includes/usercp_confirm.'.$phpEx);
+		include($phpbb_root_path . 'includes/usercp_captcha.'.$phpEx);
+// End Anti-Spam ACP MOD
 		exit;
 	}
 	else if ( $mode == 'sendpassword' )

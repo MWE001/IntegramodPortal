@@ -143,9 +143,21 @@ switch( $mode )
 		break;
 }
 
+// Start Anti-Spam ACP MOD
+	if ( $mode != 'inactive') // Since User Shield is such a great mod, I will do a little hack to make my mod compatible with it...
+	{
+		$as_sql = ($board_config['as_acp_hide_inactive']) ? ' AND user_active = 1' : '';
+	}
+	else
+	{
+		$as_sql = '';
+	}
+// End Anti-Spam ACP MOD
+
 $sql = "SELECT username, user_id, user_viewemail, user_posts, user_regdate, user_from, user_website, user_email, user_icq, user_aim, user_yim, user_msnm, user_avatar, user_avatar_type, user_allowavatar 
 	FROM " . USERS_TABLE . "
 	WHERE user_id <> " . ANONYMOUS . "
+	$as_sql
 	ORDER BY $order_by";
 if( !($result = $db->sql_query($sql)) )
 {
@@ -297,7 +309,7 @@ if ( $mode != 'topten' || $board_config['topics_per_page'] < 10 )
 {
 	$sql = "SELECT count(*) AS total
 		FROM " . USERS_TABLE . "
-		WHERE user_id <> " . ANONYMOUS;
+		WHERE user_id <> " . ANONYMOUS . $as_sql;
 
 	if ( !($result = $db->sql_query($sql)) )
 	{

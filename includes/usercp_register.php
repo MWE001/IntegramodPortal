@@ -74,6 +74,11 @@ function show_coppa()
 
 $error = FALSE;
 $error_msg = '';
+
+// Start Anti-Spam ACP MOD
+require($phpbb_root_path . 'includes/anti_spam_acp.' . $phpEx);
+// End Anti-Spam ACP MOD
+
 $page_title = ( $mode == 'editprofile' ) ? $lang['Edit_profile'] : $lang['Register'];
 
 if ( $mode == 'register' && !isset($HTTP_POST_VARS['agreed']) && !isset($HTTP_GET_VARS['agreed']) )
@@ -305,8 +310,22 @@ if ( isset($HTTP_POST_VARS['submit']) )
 
 			if ($row = $db->sql_fetchrow($result))
 			{
-				if ($row['code'] != $confirm_code)
+
+// Start Anti-Spam ACP MOD
+//				if ($row['code'] != $confirm_code)
+//				{
+				if ( ( ($board_config['as_acp_captcha_case_sensative'] == '0') && (strtoupper($row['code']) != strtoupper($confirm_code)) ) || ( ($board_config['as_acp_captcha_case_sensative'] == '1') && ($row['code'] != $confirm_code) ))
 				{
+					if ( ($confirm_code == '') && ($board_config['as_acp_log_captcha']) )
+					{
+						$as_triggers .= sprintf($lang['No_Captcha_Code'], $row['code']) . '%end_of_line%';
+					}
+					else if ($board_config['as_acp_log_captcha'])
+					{
+						$as_triggers .= sprintf($lang['Wrong_Captcha_Code'], $row['code'], $confirm_code) . '%end_of_line%';
+					}
+// End Anti-Spam ACP MOD
+
 					$error = TRUE;
 					$error_msg .= ( ( isset($error_msg) ) ? '<br />' : '' ) . $lang['Confirm_code_wrong'];
 				}
@@ -329,6 +348,13 @@ if ( isset($HTTP_POST_VARS['submit']) )
 			$db->sql_freeresult($result);
 		}
 	}
+
+// Start Anti-Spam ACP MOD
+	if ($as_triggers != '')
+	{
+		log_spam($as_triggers, $username, $user_id, $email, $lang['During_Registration'], sprintf($lang['Not_Test_Email_Header'], ($mode == 'register') ? $lang['Registering'] : $lang['Editing_Profile']));
+	}
+// End Anti-Spam ACP MOD
 
 	$passwd_sql = '';
 	if ( !empty($new_password) && !empty($password_confirm) )
@@ -1000,8 +1026,10 @@ else
 		// Generate the required confirmation code
 		// NB 0 (zero) could get confused with O (the letter) so we make change it
 		$code = dss_rand();
-		$code = substr(str_replace('0', 'Z', strtoupper(base_convert($code, 16, 35))), 2, 6);
-
+// Start Anti-Spam ACP MOD
+//		$code = substr(str_replace('0', 'Z', strtoupper(base_convert($code, 16, 35))), 2, 6);
+		$code = substr(str_replace('0', 'Z', strtoupper(base_convert($code, 16, 35))), rand(0, 3), rand(2, 8));
+// End Anti-Spam ACP MOD
 		$confirm_id = md5(uniqid($user_ip));
 
 		$sql = 'INSERT INTO ' . CONFIRM_TABLE . " (confirm_id, session_id, code) 
@@ -1130,7 +1158,8 @@ else
 
 		'L_CONFIRM_CODE_IMPAIRED'	=> sprintf($lang['Confirm_code_impaired'], '<a href="mailto:' . $board_config['board_email'] . '">', '</a>'), 
 		'L_CONFIRM_CODE'			=> $lang['Confirm_code'], 
-		'L_CONFIRM_CODE_EXPLAIN'	=> $lang['Confirm_code_explain'], 
+//		'L_CONFIRM_CODE_EXPLAIN'	=> $lang['Confirm_code_explain'], 
+		'L_CONFIRM_CODE_EXPLAIN'	=> $lang['New_Confirm_Code_Explain'],
 
 		'S_ALLOW_AVATAR_UPLOAD' => $board_config['allow_avatar_upload'],
 		'S_ALLOW_AVATAR_LOCAL' => $board_config['allow_avatar_local'],

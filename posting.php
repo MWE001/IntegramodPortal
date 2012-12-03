@@ -94,6 +94,24 @@ init_userprefs($userdata);
 // End session management
 //
 
+// Start Anti-Spam ACP MOD
+/*
+* include the language file
+*/
+$language = ($userdata['user_lang'] != '') ? $userdata['user_lang'] : $board_config['default_lang'];
+
+if (!file_exists($phpbb_root_path . 'language/lang_' . $language . '/lang_anti_spam_acp.' . $phpEx))
+{
+	message_die(GENERAL_MESSAGE, 'Anti-Spam ACP Mod language file does not exist: language/lang_' . $language . '/lang_anti_spam_acp.' . $phpEx);
+}			
+include_once($phpbb_root_path . 'language/lang_' . $language . '/lang_anti_spam_acp.' . $phpEx);
+
+/*
+* include the functions file
+*/
+require($phpbb_root_path . 'includes/functions_anti_spam_acp.' . $phpEx);
+// End Anti-Spam ACP MOD
+
 //
 // Was cancel pressed? If so then redirect to the appropriate
 // page, no point in continuing with any further checks
@@ -562,6 +580,73 @@ else if ( $submit || $confirm )
 			$poll_length = ( isset($HTTP_POST_VARS['poll_length']) && $is_auth['auth_pollcreate'] ) ? $HTTP_POST_VARS['poll_length'] : '';
 			$bbcode_uid = '';
 
+// Start Anti-Spam ACP MOD
+			if ( $board_config['enable_confirm'] && !$userdata['session_logged_in'] )
+			{
+				if ( empty($HTTP_POST_VARS['confirm_id']) )
+				{
+					$error = TRUE;
+					$error_msg .= ( ( isset($error_msg) ) ? '<br />' : '' ) . $lang['Confirm_code_wrong'];
+				}
+				else
+				{
+					$confirm_id = htmlspecialchars($HTTP_POST_VARS['confirm_id']);
+					if (!preg_match('/^[A-Za-z0-9]+$/', $confirm_id))
+					{
+						$confirm_id = '';
+					}
+					
+					$sql = 'SELECT code 
+						FROM ' . CONFIRM_TABLE . " 
+						WHERE confirm_id = '$confirm_id' 
+							AND session_id = '" . $userdata['session_id'] . "'";
+					if (!($result = $db->sql_query($sql)))
+					{
+						message_die(GENERAL_ERROR, 'Could not obtain confirmation code');
+					}
+		
+					if ($row = $db->sql_fetchrow($result))
+					{
+						if ( ( ($board_config['as_acp_captcha_case_sensative'] == '0') && (strtoupper($row['code']) != strtoupper($HTTP_POST_VARS['confirm_code'])) ) || ( ($board_config['as_acp_captcha_case_sensative'] == '1') && ($row['code'] != $HTTP_POST_VARS['confirm_code']) ))
+						{
+							$error = TRUE;
+							$error_msg .= ( ( isset($error_msg) ) ? '<br />' : '' ) . $lang['Confirm_code_wrong'];
+							if ($board_config['as_acp_log_captcha'])
+							{
+								if ($HTTP_POST_VARS['confirm_code'] != '')
+								{
+									$as_triggers = sprintf($lang['Wrong_Captcha_Code'], $row['code'], str_replace("'", "\'", $HTTP_POST_VARS['confirm_code'])) . '%end_of_line%';
+								}
+								else
+								{
+									$as_triggers = sprintf($lang['No_Captcha_Code'], $row['code']) . '%end_of_line%';
+								}
+							}
+						}
+
+						$sql = 'DELETE FROM ' . CONFIRM_TABLE . " 
+							WHERE confirm_id = '$confirm_id' 
+								AND session_id = '" . $userdata['session_id'] . "'";
+						if (!$db->sql_query($sql))
+						{
+							message_die(GENERAL_ERROR, 'Could not delete confirmation code');
+						}
+					}
+					else
+					{		
+						$error = TRUE;
+						$error_msg .= ( ( isset($error_msg) ) ? '<br />' : '' ) . $lang['Confirm_code_wrong'];
+					}
+					$db->sql_freeresult($result);
+				}
+			}
+
+			if ( isset($as_triggers))
+			{
+				log_spam($as_triggers, $username, '-1', '', $lang['During_Posting'], sprintf($lang['Not_Test_Email_Header'], $lang['During_Posting']));
+			}
+// End Anti-Spam ACP MOD
+
 			prepare_post($mode, $post_data, $bbcode_on, $html_on, $smilies_on, $error_msg, $username, $bbcode_uid, $subject, $message, $poll_title, $poll_options, $poll_length);
 
 			if ( $error_msg == '' )
@@ -989,6 +1074,48 @@ $template->assign_vars(array(
 // but not for privmsg (where it makes no sense)
 //
 $template->assign_block_vars('switch_not_privmsg', array());
+
+// Start Anti-Spam ACP MOD
+$confirm_image = '';
+if( !$userdata['session_logged_in'] && (!empty($board_config['enable_confirm'])) )
+{
+	// Generate the required confirmation code
+	$code = dss_rand();
+
+	$code = substr(str_replace('0', 'Z', strtoupper(base_convert($code, 16, 35))), rand(0, 3), rand(2, 8));
+	if ( (extension_loaded("gd")) && ($board_config['as_acp_new_captcha_on']) )
+	{
+		$confirm_explain = $lang['New_Confirm_Code_Explain'];
+	}
+	else
+	{
+		$confirm_explain = $lang['Confirm_code_explain'];
+	}
+
+	$confirm_id = md5(uniqid($user_ip));
+
+	$sql = 'INSERT INTO ' . CONFIRM_TABLE . " (confirm_id, session_id, code) 
+		VALUES ('$confirm_id', '". $userdata['session_id'] . "', '$code')";
+	if (!$db->sql_query($sql))
+	{
+		message_die(GENERAL_ERROR, 'Could not insert new confirm code information', '', __LINE__, __FILE__, $sql);
+	}
+
+	unset($code);
+	
+	$confirm_image = '<img src="' . append_sid("profile.$phpEx?mode=confirm&amp;id=$confirm_id") . '" alt="" title="" />';
+	$hidden_form_fields .= '<input type="hidden" name="confirm_id" value="' . $confirm_id . '" />';
+
+	$template->assign_block_vars('switch_confirm', array());
+}
+
+$template->assign_vars(array(
+	'CONFIRM_IMG' => $confirm_image,
+	'L_CONFIRM_CODE_IMPAIRED'	=> sprintf($lang['Confirm_code_impaired'], '<a href="mailto:' . $board_config['board_email'] . '">', '</a>'),
+	'L_CONFIRM_CODE' => $lang['Confirm_code'],
+	'L_CONFIRM_CODE_EXPLAIN' => $confirm_explain)
+	);
+// End Anti-Spam ACP MOD
 
 //
 // Output the data to the template

@@ -13,7 +13,7 @@
 
 	The phpBB Group : 2002
 // -->
-Powered by <a href="http://www.phpbb.com/" target="_phpbb" class="copyright">phpBB</a> &copy; 2001, 2012 phpBB Group<br />Portal powered by <a href="http://www.integramod.com/" target="_blank" class="copyright">IM Portal</a> &copy; 2004, 2012 IntegraMOD<br />{TRANSLATION_INFO}</span></div>
+Powered by <a href="http://www.phpbb.com/" target="_phpbb" class="copyright">phpBB</a> &copy; 2001, 2012 phpBB Group<br />Portal powered by <a href="http://www.integramod.com/" target="_blank" class="copyright">IM Portal</a> &copy; 2004, 2012 IntegraMOD<br />{TRANSLATION_INFO}</span><br /><span class="copyright">Protected by <a href="http://www.lithiumstudios.org/" target="_blank" class="copyright">Anti-Spam ACP</a></span></div>
 
 
 

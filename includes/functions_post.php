@@ -136,6 +136,35 @@ function prepare_post(&$mode, &$post_data, &$bbcode_on, &$html_on, &$smilies_on,
 		$error_msg .= (!empty($error_msg)) ? '<br />' . $lang['Empty_message'] : $lang['Empty_message'];
 	}
 
+// Start Anti-Spam ACP MOD
+	if ( ($userdata['user_level'] != ADMIN) && ($userdata['user_level'] != MOD) )
+	{
+		if ( ($board_config['as_acp_posting_url'] == 'off') || ( ($board_config['as_acp_posting_url'] == 'post count') && ( ($userdata['user_posts'] < $board_config['as_acp_posting_url_post']) || ($userdata['user_id'] == ANONYMOUS) ) ) || ( ($board_config['as_acp_posting_url'] == 'guest') && ($userdata['user_id'] == ANONYMOUS) ) )
+		{
+			if ( (preg_match("%((http://|https://|ftp://|file://|www\.)[^\s]+?)(.*)%isU", $message)) || (preg_match("%([^\s]+?(\.com|\.org|\.net|\.biz|\.info|\.name|\.ru|\.ws|\.de))%", $message)) )
+			{
+				if ($board_config['as_acp_posting_url'] == 'off')
+				{
+					$error_msg .= $lang['Url_Not_Allowed'];
+				}
+				else if( ($board_config['as_acp_posting_url'] == 'guest') || ($userdata['user_id'] == ANONYMOUS) )
+				{
+					$error_msg .= $lang['Url_Not_Allowed_Guests'];
+				}
+				else
+				{
+					$error_msg .= sprintf($lang['Url_Not_Allowed_Count'], $board_config['as_acp_posting_url_post']);
+				}
+
+				if ($board_config['as_acp_log_message_posting'])
+				{
+					log_spam($message, (empty($username)) ? $userdata['username'] : $username, $userdata['user_id'], $userdata['user_email'], $lang['During_Posting'], sprintf($lang['Not_Test_Email_Header'], $lang['Posting']));
+				}
+			}
+		}
+	}
+// End Anti-Spam ACP MOD
+
 	//
 	// Handle poll stuff
 	//

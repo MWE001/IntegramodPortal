@@ -178,12 +178,7 @@ $lang['Styles_tip'] = 'Tip: Styles can be applied quickly to selected text.';
 $lang['Home_index'] = 'Portal Index';
 $lang['Home_preview'] = 'Preview Portal';
 
-$lang['Forum'] = 'Forum';
-$lang['Faq'] = 'FAQ';
-$lang['Home'] = 'Home';
-$lang['Memberlist'] = 'Memberlist';
-$lang['Portal'] = 'Portal';
-$lang['Search'] = 'Search';
+
 //
 // That's all, Folks!
 // -------------------------------------------------
