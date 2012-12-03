@@ -282,8 +282,8 @@ abbr, acronym {
 .tblbot{background: url(images/tb4_m.gif) repeat-x;width:100%}
 .tblr{background: url(images/tb4_r.gif) no-repeat;width:8px}
 
-.left {	
-margin-left:120px;
+.left {
+	margin-left:120px;
 	text-align:left;
 	font-size : 11px;
 	text-decoration: none;
