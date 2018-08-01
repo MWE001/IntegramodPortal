@@ -842,7 +842,7 @@ else if ( $search_keywords != '' || $search_author != '' || $search_id )
 
 				for ($k = 0; $k < count($synonym_array); $k++)
 				{ 
-					list($replace_synonym, $match_synonym) = split(' ', trim(strtolower($synonym_array[$k]))); 
+					list($replace_synonym, $match_synonym) = explode(' ', trim(strtolower($synonym_array[$k]))); 
 
 					if ( $replace_synonym == $split_word )
 					{
