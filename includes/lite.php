@@ -410,7 +410,9 @@ class Cache_Lite
                 $length = $length - 32;
             } 
             $data = @fread($fp, $length);
-            set_magic_quotes_runtime($mqr);
+            if (version_compare(PHP_VERSION, '5.3.0', '<')) {
+    		set_magic_quotes_runtime($mqr);
+	    }
             if ($this->_fileLocking) @flock($fp, LOCK_UN);
             @fclose($fp);
             if ($this->_readControl) {
