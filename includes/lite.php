@@ -401,8 +401,10 @@ class Cache_Lite
         if ($fp) {
             clearstatcache(); // because the filesize can be cached by PHP itself...
             $length = @filesize($this->_file);
-            $mqr = get_magic_quotes_runtime();
-            set_magic_quotes_runtime(0);
+            if (version_compare(PHP_VERSION, '5.3.0', '<')) {
+    		$mqr=get_magic_quotes_runtime();
+    		set_magic_quotes_runtime(0);// Disable magic_quotes_runtime
+	    }
             if ($this->_readControl) {
                 $hashControl = @fread($fp, 32);
                 $length = $length - 32;
