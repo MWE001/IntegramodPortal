@@ -260,7 +260,7 @@ function portal_parse_blocks($layout, $forum_wide = FALSE, $type='')
 			}
 			$lang_exist = FALSE;
 
-			$block_name = ereg_replace('blocks_imp_','',$block_info[$b_counter]['blockfile']);
+			$block_name = preg_replace('#blocks_imp_#is','',$block_info[$b_counter]['blockfile']);
 
 			if (file_exists('blocks/language/lang_' . $board_config['default_lang'] . '/lang_' . $block_name . '_block.' . $phpEx))
 			{
