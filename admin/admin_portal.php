@@ -58,7 +58,7 @@ while( $row = $db->sql_fetchrow($result) )
 	$var[$row['config_name']]['field_options'] = $row['field_options'];
 	$var[$row['config_name']]['field_values'] = $row['field_values'];
 	$var[$row['config_name']]['type'] = $row['type'];
-	$var[$row['config_name']]['block'] = ereg_replace("_"," ",$row['block']);
+	$var[$row['config_name']]['block'] = preg_replace("#_#is"," ",$row['block']);
 }
 
 $sql = "SELECT * FROM " . LAYOUT_TABLE . " ORDER BY lid";
@@ -203,7 +203,7 @@ else
 			$is_block = ($var[$portal_name]['block']!='@Portal Config') ? 'block ' : '';
 			$template->assign_block_vars("portal", array(
 				"L_FIELD_LABEL" => $var[$portal_name]['label'],
-				"L_FIELD_SUBLABEL" => '<br /><br /><span class="gensmall">' . $var[$portal_name]['sub_label'] . ' [ ' . ereg_replace("@","",$var[$portal_name]['block']) . ' ' . $is_block . ']</span>',
+				"L_FIELD_SUBLABEL" => '<br /><br /><span class="gensmall">' . $var[$portal_name]['sub_label'] . ' [ ' . preg_replace("#@#is","",$var[$portal_name]['block']) . ' ' . $is_block . ']</span>',
 				"FIELD" => $field
 				)
 			);
