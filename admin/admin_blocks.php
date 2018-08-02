@@ -303,9 +303,9 @@ if( $mode != "" && $mode != "blocks" )
 						$pos = strpos($file, ".".$phpEx);
 						if ($pos!==false)
 						{
-							$temp = ereg_replace("\.".$phpEx,"",$file);
-							$temp1 = ereg_replace('blocks_imp_','',$temp);
-							$temp1 = ereg_replace('_',' ',$temp1);
+							$temp = str_replace('#.#is'.$phpEx, '', $file); //thanks for the tip!!
+							$temp1 = preg_replace('#blocks_imp_#is','',$temp); //Needs to be checked for correctness
+							$temp1 = preg_replace('#_#is',' ',$temp1); //Needs to be checked for correctness
 							$blockfile .= '<option value="' . $temp .'" ';
 							if($b_info['blockfile']==$temp)
 							{
@@ -391,9 +391,9 @@ if( $mode != "" && $mode != "blocks" )
 					$pos = strpos($file, ".".$phpEx);
 					if ($pos!==false)
 					{
-						$temp = ereg_replace("\.".$phpEx,"",$file);
-						$temp1 = ereg_replace('blocks_imp_','',$temp);
-						$temp1 = ereg_replace('_',' ',$temp1);
+						$temp = str_replace('#.#is'.$phpEx, '', $file); //thanks for the tip!!
+						$temp1 = preg_replace('#blocks_imp_#is','',$temp); //Needs to be checked for correctness
+						$temp1 = preg_replace('#_#is',' ',$temp1); //Needs to be checked for correctness
 						$blockfile .= '<option value="' . $temp .'">' . $temp1;
 					}
 				}
