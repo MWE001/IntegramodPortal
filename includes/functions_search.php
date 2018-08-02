@@ -197,6 +197,9 @@ function add_search_words($mode, $post_id, $post_text, $post_title = '')
 					case 'mysql4':
 						$value_sql .= ( ( $value_sql != '' ) ? ', ' : '' ) . '(\'' . $word[$i] . '\', 0)';
 						break;
+					case 'mysqli':
+						$value_sql .= ( ( $value_sql != '' ) ? ', ' : '' ) . '(\'' . $word[$i] . '\', 0)';
+						break;
 					case 'mssql':
 					case 'mssql-odbc':
 						$value_sql .= ( ( $value_sql != '' ) ? ' UNION ALL ' : '' ) . "SELECT '" . $word[$i] . "', 0";
@@ -219,6 +222,10 @@ function add_search_words($mode, $post_id, $post_text, $post_title = '')
 			{
 				case 'mysql':
 				case 'mysql4':
+					$sql = "INSERT IGNORE INTO " . SEARCH_WORD_TABLE . " (word_text, word_common) 
+						VALUES $value_sql"; 
+					break;
+				case 'mysqli':
 					$sql = "INSERT IGNORE INTO " . SEARCH_WORD_TABLE . " (word_text, word_common) 
 						VALUES $value_sql"; 
 					break;
@@ -349,6 +356,7 @@ function remove_search_post($post_id_sql)
 	{
 		case 'mysql':
 		case 'mysql4':
+		case 'mysqli':
 			$sql = "SELECT word_id 
 				FROM " . SEARCH_MATCH_TABLE . " 
 				WHERE post_id IN ($post_id_sql) 
