@@ -599,6 +599,9 @@ function db_updates() // Check if all the fields in the database exist, if not a
 			case 'mysql4':
 				$sql = 'ALTER TABLE ' . CONFIRM_TABLE . " CHANGE `code` `code` CHAR(8)";
 				break;
+			case 'mysqli':
+				$sql = 'ALTER TABLE ' . CONFIRM_TABLE . " CHANGE `code` `code` CHAR(8)";
+				break;
 			case 'postgresql':
 				$sql = 'ALTER TABLE ' . CONFIRM_TABLE . " ALTER COLUMN code varchar(8)";
 				break;
