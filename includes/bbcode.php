@@ -317,7 +317,12 @@ function bbencode_first_pass($text, $uid)
 	$text = preg_replace("#\[i\](.*?)\[/i\]#si", "[i:$uid]\\1[/i:$uid]", $text);
 
 	// [img]image_url_here[/img] code..
-	$text = preg_replace("#\[img\]((http|ftp|https|ftps)://)([^ \?&=\#\"\n\r\t<]*?(\.(jpg|jpeg|gif|png)))\[/img\]#sie", "'[img:$uid]\\1' . str_replace(' ', '%20', '\\3') . '[/img:$uid]'", $text);
+	$text = preg_replace_callback("#\[img\]((http|ftp|https|ftps)://)([^\?&=\#\"\n\r\t<]*?(\.(jpg|jpeg|gif|png)))\[/img\]#si",
+	function($matches) use ($uid)
+		{
+			return "[img:$uid]" . $matches[1] . str_replace(" ", "%20", $matches[3]) . "[/img:$uid]";
+	        },
+		$text);
 
 	// [web]Web Iframe URL[/web] code..
 	$text = preg_replace("#\[web\](http(s)?://)([a-z0-9\-\.,\?!%\*_\#:;~\\&$@\/=\+]+)\[/web\]#si", "[web:$uid]\\1\\3[/web:$uid]", $text);
